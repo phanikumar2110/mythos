@@ -1,0 +1,222 @@
+/**
+ * Scene schema — defines the JSON format for episodes
+ */
+
+export const sceneSchema = {
+  version: "1.0",
+  required: ["meta", "locations", "characters", "shots"],
+  properties: {
+    meta: {
+      type: "object",
+      required: ["title", "duration", "fps", "resolution", "style"],
+      properties: {
+        title: { type: "string" },
+        duration: { type: "number", minimum: 1 }, // seconds
+        fps: { type: "integer", enum: [12, 24, 30] },
+        resolution: { type: "string", enum: ["1920x1080", "1080x1920", "1280x720"] },
+        style: { type: "string", enum: ["cel-anime-80s", "hologram-hud", "whiteboard"] },
+        aspectRatio: { type: "string" }
+      }
+    },
+    locations: {
+      type: "object",
+      additionalProperties: { $ref: "#/definitions/location" }
+    },
+    characters: {
+      type: "object",
+      additionalProperties: { $ref: "#/definitions/characterRef" }
+    },
+    shots: {
+      type: "array",
+      items: { $ref: "#/definitions/shot" }
+    },
+    audio: {
+      type: "object",
+      properties: {
+        narration: { type: "array", items: { $ref: "#/definitions/narrationLine" } },
+        sfx: { type: "array", items: { $ref: "#/definitions/sfxEvent" } },
+        music: { $ref: "#/definitions/musicTrack" }
+      }
+    }
+  },
+  definitions: {
+    location: {
+      type: "object",
+      required: ["id", "type"],
+      properties: {
+        id: { type: "string" },
+        type: { type: "string", enum: ["void", "interior", "exterior"] },
+        file: { type: "string" }, // references locations/*.json
+        overrides: { type: "object" }
+      }
+    },
+    characterRef: {
+      type: "object",
+      required: ["id", "file"],
+      properties: {
+        id: { type: "string" },
+        file: { type: "string" }, // references characters/*.js
+        defaultPose: { type: "string" },
+        defaultExpression: { type: "string" },
+        defaultScale: { type: "number" }
+      }
+    },
+    shot: {
+      type: "object",
+      required: ["id", "location", "startTime", "endTime", "camera"],
+      properties: {
+        id: { type: "string" },
+        location: { type: "string" },
+        startTime: { type: "number" },
+        endTime: { type: "number" },
+        camera: { $ref: "#/definitions/camera" },
+        characters: {
+          type: "array",
+          items: {
+            type: "object",
+            required: ["id", "character"],
+            properties: {
+              id: { type: "string" },
+              character: { type: "string" }, // references characters.id
+              x: { type: "number" },
+              y: { type: "number" },
+              scale: { type: "number" },
+              pose: { type: "string" },
+              expression: { type: "string" },
+              phoneme: { type: "string" },
+              animations: {
+                type: "array",
+                items: {
+                  type: "object",
+                  properties: {
+                    property: { type: "string" },
+                    from: {},
+                    to: {},
+                    start: { type: "number" },
+                    end: { type: "number" },
+                    easing: { type: "string" }
+                  }
+                }
+              }
+            }
+          }
+        },
+        effects: {
+          type: "array",
+          items: {
+            type: "object",
+            properties: {
+              type: { type: "string", enum: ["speedLines", "impactFrame", "glitch", "lightSweep", "chromaticAberration", "scanlineTelegraph", "powerOn", "trackingNoise"] },
+              config: { type: "object" },
+              start: { type: "number" },
+              end: { type: "number" }
+            }
+          }
+        },
+        narration: {
+          type: "array",
+          items: {
+            type: "object",
+            properties: {
+              lineId: { type: "string" },
+              start: { type: "number" },
+              character: { type: "string" }
+            }
+          }
+        }
+      }
+    },
+    camera: {
+      type: "object",
+      properties: {
+        type: { type: "string", enum: ["static", "pan", "zoom", "crane", "push_in", "pull_out", "shake", "crane_down", "crane_up", "tracking"] },
+        start: { $ref: "#/definitions/cameraState" },
+        end: { $ref: "#/definitions/cameraState" },
+        easing: { type: "string", enum: ["linear", "easeIn", "easeOut", "easeInOut", "easeElastic", "easeBounce"] }
+      }
+    },
+    cameraState: {
+      type: "object",
+      properties: {
+        x: { type: "number" },
+        y: { type: "number" },
+        zoom: { type: "number" },
+        rotation: { type: "number" },
+        targetX: { type: "number" },
+        targetY: { type: "number" }
+      }
+    },
+    narrationLine: {
+      type: "object",
+      required: ["id", "text", "startTime", "character"],
+      properties: {
+        id: { type: "string" },
+        text: { type: "string" },
+        startTime: { type: "number" },
+        duration: { type: "number" },
+        character: { type: "string" },
+        emotion: { type: "string" },
+        speed: { type: "number", default: 1.0 }
+      }
+    },
+    sfxEvent: {
+      type: "object",
+      required: ["type", "time"],
+      properties: {
+        type: { type: "string", enum: ["whoosh", "impact", "glitch", "ambient", "button", "footstep", "static", "hum"] },
+        time: { type: "number" },
+        volume: { type: "number", default: 1.0 },
+        pan: { type: "number", default: 0 }
+      }
+    },
+    musicTrack: {
+      type: "object",
+      properties: {
+        file: { type: "string" },
+        volume: { type: "number", default: 0.7 },
+        loop: { type: "boolean", default: true },
+        fadeIn: { type: "number", default: 0 },
+        fadeOut: { type: "number", default: 0 }
+      }
+    }
+  }
+};
+
+export const defaultSceneTemplate = {
+  meta: {
+    title: "Episode Title",
+    duration: 420,
+    fps: 24,
+    resolution: "1920x1080",
+    style: "cel-anime-80s",
+    aspectRatio: "16:9"
+  },
+  locations: {
+    opening: { id: "infinite_grid_void", type: "void", file: "locations/infinite_grid_void.json" },
+    main: { id: "terminal_deck", type: "interior", file: "locations/terminal_deck.json" },
+    climax: { id: "data_monoliths", type: "void", file: "locations/data_monoliths.json" },
+    ending: { id: "rain_balustrade", type: "exterior", file: "locations/rain_balustrade.json" }
+  },
+  characters: {
+    cipher: { id: "cipher", file: "characters/cipher.js", defaultPose: "idle", defaultExpression: "neutral", defaultScale: 1.0 },
+    echo: { id: "echo", file: "characters/echo.js", defaultPose: "idle", defaultExpression: "deadpan", defaultScale: 1.0 },
+    voxel: { id: "voxel", file: "characters/voxel.js", defaultPose: "idle", defaultExpression: "idle", defaultScale: 1.0 },
+    silhouette: { id: "silhouette", file: "characters/silhouette.js", defaultPose: "standing", defaultExpression: "dormant", defaultScale: 1.0 }
+  },
+  shots: [],
+  audio: {
+    narration: [],
+    sfx: [],
+    music: { file: "music/ambient_void.mp3", volume: 0.5, loop: true }
+  }
+};
+
+export function validateScene(scene) {
+  const errors = [];
+  if (!scene.meta || !scene.meta.title) errors.push("Missing meta.title");
+  if (!scene.meta || !scene.meta.duration) errors.push("Missing meta.duration");
+  if (!scene.shots || scene.shots.length === 0) errors.push("No shots defined");
+  return { valid: errors.length === 0, errors };
+}
+
+export default { sceneSchema, defaultSceneTemplate, validateScene };

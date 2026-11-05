@@ -1,0 +1,137 @@
+{
+  "meta": {
+    "title": "CipherBase Episode 001 - The Weaver Awakens",
+    "duration": 30,
+    "fps": 24,
+    "resolution": "1920x1080",
+    "style": "cel-anime-80s",
+    "aspectRatio": "16:9"
+  },
+  "locations": {
+    "void": { "id": "infinite_grid_void", "type": "void", "file": "locations/infinite_grid_void.json" },
+    "terminal": { "id": "terminal_deck", "type": "interior", "file": "locations/terminal_deck.json" },
+    "monoliths": { "id": "data_monoliths", "type": "void", "file": "locations/data_monoliths.json" },
+    "rain": { "id": "rain_balustrade", "type": "exterior", "file": "locations/rain_balustrade.json" }
+  },
+  "characters": {
+    "cipher": { "id": "cipher", "file": "characters/cipher.js", "defaultPose": "idle", "defaultExpression": "neutral", "defaultScale": 1.0 },
+    "echo": { "id": "echo", "file": "characters/echo.js", "defaultPose": "idle", "defaultExpression": "deadpan", "defaultScale": 1.0 },
+    "voxel": { "id": "voxel", "file": "characters/voxel.js", "defaultPose": "idle", "defaultExpression": "idle", "defaultScale": 1.0 },
+    "silhouette": { "id": "silhouette", "file": "characters/silhouette.js", "defaultPose": "standing", "defaultExpression": "dormant", "defaultScale": 1.0 }
+  },
+  "shots": [
+    {
+      "id": "opening_void",
+      "location": "void",
+      "startTime": 0,
+      "endTime": 8,
+      "camera": {
+        "type": "crane_down",
+        "start": { "x": 0, "y": -2, "zoom": 0.5, "rotation": 0, "targetX": 0, "targetY": 0 },
+        "end": { "x": 0, "y": 0, "zoom": 1.0, "rotation": 0, "targetX": 0, "targetY": 0 },
+        "easing": "easeOut"
+      },
+      "characters": [
+        { "id": "cipher_01", "character": "cipher", "x": 0, "y": 0, "scale": 1.0, "pose": "idle", "expression": "neutral" }
+      ],
+      "effects": [
+        { "type": "powerOn", "config": {}, "start": 0, "end": 1.5 },
+        { "type": "speedLines", "config": { "color": "#00f0ff", "speed": 2, "opacity": 0.3 }, "start": 0, "end": 8 }
+      ],
+      "narration": [
+        { "lineId": "n01", "start": 1.0, "character": "cipher" }
+      ]
+    },
+    {
+      "id": "terminal_intro",
+      "location": "terminal",
+      "startTime": 8,
+      "endTime": 16,
+      "camera": {
+        "type": "static",
+        "start": { "x": 0, "y": 0, "zoom": 1.0, "rotation": 0, "targetX": 0, "targetY": 0 },
+        "end": { "x": 0, "y": 0, "zoom": 1.0, "rotation": 0, "targetX": 0, "targetY": 0 },
+        "easing": "linear"
+      },
+      "characters": [
+        { "id": "cipher_02", "character": "cipher", "x": -1.5, "y": 0, "scale": 1.0, "pose": "thinking", "expression": "focus", "animations": [{ "property": "expression", "from": "neutral", "to": "focus", "start": 8.5, "end": 9.0, "easing": "easeInOut" }] },
+        { "id": "echo_01", "character": "echo", "x": 1.5, "y": 0, "scale": 1.0, "pose": "analyzing", "expression": "deadpan" }
+      ],
+      "effects": [
+        { "type": "lightSweep", "config": { "color": "#00f0ff", "progress": 0.5 }, "start": 8, "end": 10 }
+      ],
+      "narration": [
+        { "lineId": "n02", "start": 8.5, "character": "echo" },
+        { "lineId": "n03", "start": 11.0, "character": "cipher" }
+      ]
+    },
+    {
+      "id": "monoliths_reveal",
+      "location": "monoliths",
+      "startTime": 16,
+      "endTime": 24,
+      "camera": {
+        "type": "crane_up",
+        "start": { "x": 0, "y": 0.5, "zoom": 1.2, "rotation": 0, "targetX": 0, "targetY": 0 },
+        "end": { "x": 0, "y": -1, "zoom": 0.7, "rotation": 0, "targetX": 0, "targetY": 0 },
+        "easing": "easeInOut"
+      },
+      "characters": [
+        { "id": "voxel_01", "character": "voxel", "x": 0, "y": 0, "scale": 1.5, "pose": "exposition", "expression": "spike" }
+      ],
+      "effects": [
+        { "type": "glitch", "config": { "intensity": 1.5, "color": "#ff2a5f" }, "start": 16, "end": 24 },
+        { "type": "chromaticAberration", "config": { "shift": 4, "speed": 12 }, "start": 18, "end": 22 }
+      ],
+      "narration": [
+        { "lineId": "n04", "start": 16.5, "character": "voxel" },
+        { "lineId": "n05", "start": 20.0, "character": "voxel" }
+      ]
+    },
+    {
+      "id": "silhouette_encounter",
+      "location": "rain",
+      "startTime": 24,
+      "endTime": 30,
+      "camera": {
+        "type": "push_in",
+        "start": { "x": 0, "y": 0, "zoom": 1.0, "rotation": 0, "targetX": 0, "targetY": 0 },
+        "end": { "x": 0, "y": 0, "zoom": 1.5, "rotation": 0, "targetX": 0, "targetY": 0 },
+        "easing": "easeIn"
+      },
+      "characters": [
+        { "id": "cipher_03", "character": "cipher", "x": -1, "y": 0, "scale": 1.0, "pose": "shocked", "expression": "shock" },
+        { "id": "silhouette_01", "character": "silhouette", "x": 1, "y": 0, "scale": 1.2, "pose": "looming", "expression": "hostile" }
+      ],
+      "effects": [
+        { "type": "impactFrame", "config": { "color": "#ff2a5f", "radialCount": 16 }, "start": 24, "end": 24.5 },
+        { "type": "glitch", "config": { "intensity": 2.0, "color": "#ff2a5f" }, "start": 24, "end": 30 },
+        { "type": "scanlineTelegraph", "config": { "color": "#ff2a5f", "lineCount": 6 }, "start": 24, "end": 26 }
+      ],
+      "narration": [
+        { "lineId": "n06", "start": 25.0, "character": "silhouette" },
+        { "lineId": "n07", "start": 27.0, "character": "cipher" }
+      ]
+    }
+  ],
+  "audio": {
+    "narration": [
+      { "id": "n01", "text": "The grid doesn't care about your intentions. It only executes.", "startTime": 1.0, "duration": 4.0, "character": "cipher", "emotion": "weary", "speed": 0.95 },
+      { "id": "n02", "text": "Cipher. Status report.", "startTime": 8.5, "duration": 2.0, "character": "echo", "emotion": "deadpan", "speed": 1.0 },
+      { "id": "n03", "text": "Still calibrating. The Weaver's showing anomalies in Sector 7.", "startTime": 11.0, "duration": 4.0, "character": "cipher", "emotion": "focus", "speed": 0.95 },
+      { "id": "n04", "text": "Reality-074 requesting feed of Reality-001. Observer paradox detected.", "startTime": 16.5, "duration": 3.5, "character": "voxel", "emotion": "spike", "speed": 1.1 },
+      { "id": "n05", "text": "The alternate you... gave up everything for the stars. And is entirely alone.", "startTime": 20.0, "duration": 4.0, "character": "voxel", "emotion": "spike", "speed": 1.0 },
+      { "id": "n06", "text": "You cannot outrun what you are.", "startTime": 25.0, "duration": 3.0, "character": "silhouette", "emotion": "hostile", "speed": 0.85 },
+      { "id": "n07", "text": "Maybe not. But I can choose what I do today.", "startTime": 27.0, "duration": 3.0, "character": "cipher", "emotion": "determined", "speed": 0.95 }
+    ],
+    "sfx": [
+      { "type": "hum", "time": 0, "volume": 0.3, "pan": 0 },
+      { "type": "glitch", "time": 16, "volume": 0.6, "pan": 0 },
+      { "type": "impact", "time": 24, "volume": 0.8, "pan": 0 },
+      { "type": "static", "time": 18, "volume": 0.4, "pan": -0.5 },
+      { "type": "whoosh", "time": 8, "volume": 0.5, "pan": -0.3 },
+      { "type": "button", "time": 0.5, "volume": 0.6, "pan": 0 }
+    ],
+    "music": { "file": "music/ambient_void.mp3", "volume": 0.5, "loop": true, "fadeIn": 2, "fadeOut": 3 }
+  }
+}

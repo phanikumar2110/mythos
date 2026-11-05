@@ -1,0 +1,37 @@
+{
+  "name": "CipherBase Neon Void",
+  "description": "High-contrast neon-on-void palette for Ifverse/Infinite style",
+  "colors": {
+    "deepVoid": "#0a0b10",
+    "darkCharcoal": "#161822",
+    "pureWhite": "#f8fafc",
+    "cyanGlow": "#00f0ff",
+    "crimsonFlare": "#ff2a5f",
+    "amberLight": "#ffb800",
+    "glitchGreen": "#39ff14",
+    "voidGray": "#1e1f2e"
+  },
+  "lighting": {
+    "day": { "bg": "#0a0b10", "accent": "#00f0ff", "hazard": "#ff2a5f" },
+    "night": { "bg": "#05060a", "accent": "#00d4e8", "hazard": "#e01a4f" },
+    "alert": { "bg": "#1a0005", "accent": "#ff2a5f", "hazard": "#ff0033" },
+    "glitch": { "bg": "#0a0b10", "accent": "#39ff14", "hazard": "#ff2a5f" }
+  },
+  "bloom": {
+    "threshold": 0.85,
+    "intensity": 1.8,
+    "radius": 24
+  },
+  "chromaticAberration": {
+    "enabled": true,
+    "offset": 2.5,
+    "intensity": 0.15
+  },
+  "crt": {
+    "scanlineOpacity": 0.18,
+    "scanlineCount": 1080,
+    "phosphorGlow": 0.08,
+    "vignette": 0.45,
+    "noise": 0.03
+  }
+}

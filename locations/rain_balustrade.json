@@ -1,0 +1,15 @@
+{
+  "id": "rain_balustrade",
+  "name": "The Rain Balustrade",
+  "description": "Stark concrete rooftop ledge viewed in flat silhouette; continuous vertical rain streaks with occasional distant white lightning flashes illuminating character profiles.",
+  "type": "exterior",
+  "bgColor": "#0a0b10",
+  "elements": [
+    { "id": "balustrade", "type": "rect", "x": 0, "y": 0.78, "w": 1, "h": 0.04, "color": "#161822" },
+    { "id": "rain", "type": "particles", "count": 800, "color": "#f8fafc", "opacity": 0.4, "length": 30, "speed": 25, "angle": 90, "wind": 0.1 },
+    { "id": "lightning", "type": "effect", "interval": { "min": 3, "max": 8 }, "color": "#f8fafc", "intensity": 1.0, "duration": 0.08, "silhouetteBoost": 2.0 },
+    { "id": "skyline", "type": "silhouette", "y": 0.65, "color": "#05060a" }
+  ],
+  "lighting": "night",
+  "camera": { "default": "wide_silhouette", "moves": ["static", "slow_zoom"] }
+}

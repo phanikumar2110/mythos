@@ -1,0 +1,41 @@
+{
+  "meta": {
+    "title": "Your Episode Title",
+    "duration": 420,
+    "fps": 24,
+    "resolution": "1920x1080",
+    "style": "cel-anime-80s",
+    "aspectRatio": "16:9"
+  },
+  "locations": {
+    "opening": { "id": "infinite_grid_void", "type": "void", "file": "locations/infinite_grid_void.json" },
+    "main": { "id": "terminal_deck", "type": "interior", "file": "locations/terminal_deck.json" },
+    "climax": { "id": "data_monoliths", "type": "void", "file": "locations/data_monoliths.json" },
+    "ending": { "id": "rain_balustrade", "type": "exterior", "file": "locations/rain_balustrade.json" }
+  },
+  "characters": {
+    "cipher": { "id": "cipher", "file": "characters/cipher.js", "defaultPose": "idle", "defaultExpression": "neutral", "defaultScale": 1.0 },
+    "echo": { "id": "echo", "file": "characters/echo.js", "defaultPose": "idle", "defaultExpression": "deadpan", "defaultScale": 1.0 },
+    "voxel": { "id": "voxel", "file": "characters/voxel.js", "defaultPose": "idle", "defaultExpression": "idle", "defaultScale": 1.0 },
+    "silhouette": { "id": "silhouette", file: "characters/silhouette.js", "defaultPose": "standing", "defaultExpression": "dormant", "defaultScale": 1.0 }
+  },
+  "shots": [
+    {
+      "id": "shot_01",
+      "location": "opening",
+      "startTime": 0,
+      "endTime": 30,
+      "camera": { "type": "static", "start": { "x": 0, "y": 0, "zoom": 1.0 }, "end": { "x": 0, "y": 0, "zoom": 1.0 }, "easing": "linear" },
+      "characters": [ { "id": "cipher_01", "character": "cipher", "x": 0, "y": 0, "scale": 1.0, "pose": "idle", "expression": "neutral" } ],
+      "effects": [],
+      "narration": [ { "lineId": "n01", "start": 1, "character": "cipher" } ]
+    }
+  ],
+  "audio": {
+    "narration": [
+      { "id": "n01", "text": "Your opening line here.", "startTime": 1, "duration": 4, "character": "cipher", "emotion": "neutral" }
+    ],
+    "sfx": [],
+    "music": { "file": "music/ambient_void.mp3", "volume": 0.5, "loop": true }
+  }
+}

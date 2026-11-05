@@ -1,0 +1,22 @@
+{
+  "id": "terminal_deck",
+  "name": "The Terminal Deck",
+  "description": "Minimalist dark console with two glowing ultra-wide monitor silhouettes casting sharp cyan/amber lighting onto characters, backed by floor-to-ceiling panoramic window overlooking a dead cyberpunk skyline.",
+  "type": "interior",
+  "bgColor": "#0a0b10",
+  "elements": [
+    { "id": "console", "type": "rect", "x": 0.1, "y": 0.65, "w": 0.8, "h": 0.3, "color": "#161822", "stroke": "#00f0ff", "strokeWidth": 1.5 },
+    { "id": "monitor_left", "type": "rect", "x": 0.12, "y": 0.15, "w": 0.35, "h": 0.45, "color": "#05060a", "glow": "#00f0ff", "content": "terminal_ui" },
+    { "id": "monitor_right", "type": "rect", "x": 0.53, "y": 0.15, "w": 0.35, "h": 0.45, "color": "#05060a", "glow": "#ffb800", "content": "data_visualization" },
+    { "id": "window", "type": "rect", "x": 0.05, "y": 0.02, "w": 0.9, "h": 0.4, "color": "#05060a", "stroke": "#00f0ff", "strokeWidth": 0.5 },
+    { "id": "skyline", "type": "silhouette", "y": 0.35, "color": "#05060a", "lights": ["#00f0ff", "#ff2a5f", "#ffb800"] }
+  ],
+  "lighting": {
+    "ambient": "#0a0b10",
+    "keyLights": [
+      { "x": 0.25, "y": 0.4, "color": "#00f0ff", "intensity": 0.8, "radius": 0.3 },
+      { "x": 0.75, "y": 0.4, "color": "#ffb800", "intensity": 0.6, "radius": 0.3 }
+    ]
+  },
+  "camera": { "default": "medium", "moves": ["slow_track", "push_in"] }
+}

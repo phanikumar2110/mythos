@@ -1,0 +1,287 @@
+{
+  "meta": {
+    "title": "CipherBase Episode 1 — The Weaver Awakens",
+    "duration": 300,
+    "fps": 24,
+    "resolution": "1920x1080",
+    "style": "cel-anime-80s",
+    "aspectRatio": "16:9"
+  },
+  "locations": {
+    "cafeteria": { "id": "terminal_deck", "type": "interior", "file": "locations/terminal_deck.json" },
+    "void": { "id": "infinite_grid_void", "type": "void", "file": "locations/infinite_grid_void.json" },
+    "reality_074": { "id": "infinite_grid_void", "type": "void", "file": "locations/infinite_grid_void.json", "overrides": { "grid": { "color": "#00f0ff", "opacity": 0.12 }, "particles": { "enabled": true, "count": 200, "color": "#00f0ff", "opacity": 0.2 } } },
+    "reality_112": { "id": "infinite_grid_void", "type": "void", "file": "locations/infinite_grid_void.json", "overrides": { "grid": { "color": "#ffb800", "opacity": 0.1 }, "particles": { "enabled": true, "count": 150, "color": "#ffb800", "opacity": 0.15, "drift": { "x": 0, "y": -0.1 } } } },
+    "monoliths": { "id": "data_monoliths", "type": "void", "file": "locations/data_monoliths.json" },
+    "rain": { "id": "rain_balustrade", "type": "exterior", "file": "locations/rain_balustrade.json" }
+  },
+  "characters": {
+    "cipher": { "id": "cipher", "file": "characters/cipher.js", "defaultPose": "idle", "defaultExpression": "neutral", "defaultScale": 1.0 },
+    "echo": { "id": "echo", "file": "characters/echo.js", "defaultPose": "idle", "defaultExpression": "deadpan", "defaultScale": 1.0 },
+    "voxel": { "id": "voxel", "file": "characters/voxel.js", "defaultPose": "idle", "defaultExpression": "idle", "defaultScale": 1.0 },
+    "silhouette": { "id": "silhouette", "file": "characters/silhouette.js", "defaultPose": "standing", "defaultExpression": "dormant", "defaultScale": 1.0 },
+    "maya": { "id": "cipher", "file": "characters/cipher.js", "defaultPose": "idle", "defaultExpression": "neutral", "defaultScale": 1.0, "overrides": { "spec": { "body": { "hoodie": { "color": "#2a2d3e" }, "hair": { "color": "#3a3f5c" } } } } }
+  },
+  "shots": [
+    {
+      "id": "cold_open_grid",
+      "location": "void",
+      "startTime": 0,
+      "endTime": 8,
+      "camera": { "type": "crane_down", "start": { "x": 0, "y": -3, "zoom": 0.4 }, "end": { "x": 0, "y": 0, "zoom": 1.0 }, "easing": "easeOut" },
+      "characters": [],
+      "effects": [
+        { "type": "powerOn", "config": {}, "start": 0, "end": 2 },
+        { "type": "speedLines", "config": { "color": "#00f0ff", "speed": 1.5, "opacity": 0.25 }, "start": 0, "end": 8 }
+      ],
+      "narration": [{ "lineId": "n01", "start": 1.5, "character": "cipher" }]
+    },
+    {
+      "id": "cafeteria_wide",
+      "location": "cafeteria",
+      "startTime": 8,
+      "endTime": 20,
+      "camera": { "type": "static", "start": { "x": 0, "y": 0, "zoom": 1.0 }, "end": { "x": 0, "y": 0, "zoom": 1.0 }, "easing": "linear" },
+      "characters": [
+        { "id": "cipher_cafe", "character": "cipher", "x": -2, "y": 0, "scale": 1.0, "pose": "idle", "expression": "weary" },
+        { "id": "maya_cafe", "character": "maya", "x": 1.5, "y": 0, "scale": 1.0, "pose": "idle", "expression": "neutral" }
+      ],
+      "effects": [
+        { "type": "lightSweep", "config": { "color": "#00f0ff" }, "start": 8, "end": 12 }
+      ],
+      "narration": [
+        { "lineId": "n02", "start": 9, "character": "cipher" },
+        { "lineId": "n03", "start": 13, "character": "maya" }
+      ]
+    },
+    {
+      "id": "cafeteria_close_cipher",
+      "location": "cafeteria",
+      "startTime": 20,
+      "endTime": 35,
+      "camera": { "type": "push_in", "start": { "x": 0, "y": 0, "zoom": 1.0 }, "end": { "x": -1.5, "y": 0, "zoom": 1.8 }, "easing": "easeInOut" },
+      "characters": [
+        { "id": "cipher_close", "character": "cipher", "x": -1.5, "y": 0, "scale": 1.0, "pose": "thinking", "expression": "focus" }
+      ],
+      "effects": [
+        { "type": "speedLines", "config": { "color": "#00f0ff", "speed": 1, "opacity": 0.15 }, "start": 20, "end": 35 }
+      ],
+      "narration": [
+        { "lineId": "n04", "start": 21, "character": "cipher" },
+        { "lineId": "n05", "start": 26, "character": "cipher" }
+      ]
+    },
+    {
+      "id": "reality_074_vision",
+      "location": "reality_074",
+      "startTime": 35,
+      "endTime": 55,
+      "camera": { "type": "crane_down", "start": { "x": 0, "y": -2, "zoom": 0.6 }, "end": { "x": 0, "y": 0, "zoom": 1.0 }, "easing": "easeOut" },
+      "characters": [
+        { "id": "cipher_074", "character": "cipher", "x": 0, "y": 0, "scale": 1.2, "pose": "determined", "expression": "determined" }
+      ],
+      "effects": [
+        { "type": "glitch", "config": { "intensity": 0.8, "color": "#00f0ff" }, "start": 35, "end": 55 },
+        { "type": "speedLines", "config": { "color": "#00f0ff", "speed": 3, "opacity": 0.4 }, "start": 35, "end": 55 }
+      ],
+      "narration": [
+        { "lineId": "n06", "start": 36, "character": "cipher" },
+        { "lineId": "n07", "start": 42, "character": "voxel" }
+      ]
+    },
+    {
+      "id": "reality_112_vision",
+      "location": "reality_112",
+      "startTime": 55,
+      "endTime": 75,
+      "camera": { "type": "crane_down", "start": { "x": 0, "y": -2, "zoom": 0.6 }, "end": { "x": 0, "y": 0, "zoom": 1.0 }, "easing": "easeOut" },
+      "characters": [
+        { "id": "cipher_112", "character": "cipher", "x": 0, "y": 0, "scale": 1.2, "pose": "idle", "expression": "curious" }
+      ],
+      "effects": [
+        { "type": "glitch", "config": { "intensity": 0.6, "color": "#ffb800" }, "start": 55, "end": 75 },
+        { "type": "speedLines", "config": { "color": "#ffb800", "speed": 2, "opacity": 0.3 }, "start": 55, "end": 75 }
+      ],
+      "narration": [
+        { "lineId": "n08", "start": 56, "character": "cipher" },
+        { "lineId": "n09", "start": 62, "character": "voxel" }
+      ]
+    },
+    {
+      "id": "cafeteria_return_maya",
+      "location": "cafeteria",
+      "startTime": 75,
+      "endTime": 105,
+      "camera": { "type": "static", "start": { "x": 0, "y": 0, "zoom": 1.0 }, "end": { "x": 0, "y": 0, "zoom": 1.0 }, "easing": "linear" },
+      "characters": [
+        { "id": "cipher_back", "character": "cipher", "x": -2, "y": 0, "scale": 1.0, "pose": "shocked", "expression": "shock" },
+        { "id": "maya_back", "character": "maya", "x": 1.5, "y": 0, "scale": 1.0, "pose": "idle", "expression": "neutral" }
+      ],
+      "effects": [
+        { "type": "glitch", "config": { "intensity": 1.2, "color": "#ff2a5f" }, "start": 75, "end": 78 },
+        { "type": "lightSweep", "config": { "color": "#00f0ff" }, "start": 75, "end": 80 }
+      ],
+      "narration": [
+        { "lineId": "n10", "start": 78, "character": "maya" },
+        { "lineId": "n11", "start": 85, "character": "cipher" },
+        { "lineId": "n12", "start": 92, "character": "maya" }
+      ]
+    },
+    {
+      "id": "anomaly_trigger",
+      "location": "cafeteria",
+      "startTime": 105,
+      "endTime": 120,
+      "camera": { "type": "push_in", "start": { "x": 0, "y": 0, "zoom": 1.0 }, "end": { "x": -2, "y": 0, "zoom": 2.5 }, "easing": "easeIn" },
+      "characters": [
+        { "id": "cipher_anomaly", "character": "cipher", "x": -2, "y": 0, "scale": 1.0, "pose": "idle", "expression": "focus" }
+      ],
+      "effects": [
+        { "type": "powerOn", "config": {}, "start": 105, "end": 107 },
+        { "type": "glitch", "config": { "intensity": 2.0, "color": "#ff2a5f" }, "start": 107, "end": 120 },
+        { "type": "chromaticAberration", "config": { "shift": 4, "speed": 12 }, "start": 108, "end": 118 },
+        { "type": "scanlineTelegraph", "config": { "color": "#ff2a5f", "lineCount": 6 }, "start": 108, "end": 115 }
+      ],
+      "narration": [
+        { "lineId": "n13", "start": 108, "character": "voxel" },
+        { "lineId": "n14", "start": 113, "character": "voxel" }
+      ]
+    },
+    {
+      "id": "hologram_mirror",
+      "location": "cafeteria",
+      "startTime": 120,
+      "endTime": 145,
+      "camera": { "type": "static", "start": { "x": 0, "y": 0, "zoom": 1.0 }, "end": { "x": 0, "y": 0, "zoom": 1.0 }, "easing": "linear" },
+      "characters": [
+        { "id": "cipher_mirror", "character": "cipher", "x": -2, "y": 0, "scale": 1.0, "pose": "shocked", "expression": "shock" },
+        { "id": "cipher_074_mirror", "character": "cipher", "x": 2, "y": 0, "scale": 1.0, "pose": "idle", "expression": "weary" },
+        { "id": "maya_mirror", "character": "maya", "x": 0, "y": 0, "scale": 1.0, "pose": "idle", "expression": "neutral" }
+      ],
+      "effects": [
+        { "type": "glitch", "config": { "intensity": 1.5, "color": "#ff2a5f" }, "start": 120, "end": 145 },
+        { "type": "chromaticAberration", "config": { "shift": 3, "speed": 8 }, "start": 120, "end": 145 },
+        { "type": "lightSweep", "config": { "color": "#ff2a5f" }, "start": 125, "end": 135 }
+      ],
+      "narration": [
+        { "lineId": "n15", "start": 122, "character": "cipher" },
+        { "lineId": "n16", "start": 128, "character": "cipher" },
+        { "lineId": "n17", "start": 135, "character": "voxel" }
+      ]
+    },
+    {
+      "id": "silhouette_encounter",
+      "location": "rain",
+      "startTime": 145,
+      "endTime": 185,
+      "camera": { "type": "push_in", "start": { "x": 0, "y": 0, "zoom": 1.0 }, "end": { "x": 0, "y": 0, "zoom": 2.0 }, "easing": "easeIn" },
+      "characters": [
+        { "id": "cipher_rain", "character": "cipher", "x": -1.5, "y": 0, "scale": 1.0, "pose": "shocked", "expression": "shock" },
+        { "id": "silhouette_01", "character": "silhouette", "x": 1.5, "y": 0, "scale": 1.3, "pose": "looming", "expression": "hostile" }
+      ],
+      "effects": [
+        { "type": "impactFrame", "config": { "color": "#ff2a5f", "radialCount": 16 }, "start": 145, "end": 146 },
+        { "type": "glitch", "config": { "intensity": 2.5, "color": "#ff2a5f" }, "start": 145, "end": 185 },
+        { "type": "scanlineTelegraph", "config": { "color": "#ff2a5f", "lineCount": 8 }, "start": 145, "end": 155 },
+        { "type": "chromaticAberration", "config": { "shift": 5, "speed": 15 }, "start": 145, "end": 185 }
+      ],
+      "narration": [
+        { "lineId": "n18", "start": 148, "character": "silhouette" },
+        { "lineId": "n19", "start": 155, "character": "cipher" },
+        { "lineId": "n20", "start": 165, "character": "silhouette" },
+        { "lineId": "n21", "start": 172, "character": "voxel" }
+      ]
+    },
+    {
+      "id": "choice_and_release",
+      "location": "cafeteria",
+      "startTime": 185,
+      "endTime": 255,
+      "camera": { "type": "pull_out", "start": { "x": 0, "y": 0, "zoom": 1.5 }, "end": { "x": 0, "y": 0, "zoom": 1.0 }, "easing": "easeOut" },
+      "characters": [
+        { "id": "cipher_final", "character": "cipher", "x": -1, "y": 0, "scale": 1.0, "pose": "determined", "expression": "determined" },
+        { "id": "maya_final", "character": "maya", "x": 1, "y": 0, "scale": 1.0, "pose": "idle", "expression": "neutral" }
+      ],
+      "effects": [
+        { "type": "glitch", "config": { "intensity": 0.5, "color": "#00f0ff" }, "start": 185, "end": 195 },
+        { "type": "lightSweep", "config": { "color": "#00f0ff" }, "start": 190, "end": 200 },
+        { "type": "speedLines", "config": { "color": "#00f0ff", "speed": 0.5, "opacity": 0.1 }, "start": 185, "end": 255 }
+      ],
+      "narration": [
+        { "lineId": "n22", "start": 188, "character": "cipher" },
+        { "lineId": "n23", "start": 195, "character": "maya" },
+        { "lineId": "n24", "start": 202, "character": "cipher" },
+        { "lineId": "n25", "start": 215, "character": "voxel" },
+        { "lineId": "n26", "start": 225, "character": "cipher" }
+      ]
+    },
+    {
+      "id": "ending_rain_tea",
+      "location": "rain",
+      "startTime": 255,
+      "endTime": 300,
+      "camera": { "type": "crane_up", "start": { "x": 0, "y": 0, "zoom": 1.2 }, "end": { "x": 0, "y": -1, "zoom": 0.7 }, "easing": "easeOut" },
+      "characters": [
+        { "id": "cipher_ending", "character": "cipher", "x": -1, "y": 0, "scale": 1.0, "pose": "idle", "expression": "neutral" },
+        { "id": "maya_ending", "character": "maya", "x": 1, "y": 0, "scale": 1.0, "pose": "idle", "expression": "neutral" }
+      ],
+      "effects": [
+        { "type": "speedLines", "config": { "color": "#00f0ff", "speed": 0.3, "opacity": 0.08 }, "start": 255, "end": 300 },
+        { "type": "powerOn", "config": {}, "start": 295, "end": 300 }
+      ],
+      "narration": [
+        { "lineId": "n27", "start": 258, "character": "cipher" },
+        { "lineId": "n28", "start": 270, "character": "voxel" },
+        { "lineId": "n29", "start": 285, "character": "cipher" }
+      ]
+    }
+  ],
+  "audio": {
+    "narration": [
+      { "id": "n01", "text": "The hum of fluorescent tubes. The buzz of a thousand conversations. And in the center of it all — a wristband that changes everything.", "startTime": 1.5, "duration": 6, "character": "cipher", "emotion": "weary", "speed": 0.9 },
+      { "id": "n02", "text": "Lucas didn't touch his tray. He only stared at the band around his wrist.", "startTime": 9, "duration": 4, "character": "cipher", "emotion": "neutral", "speed": 0.95 },
+      { "id": "n03", "text": "Still calibrating?", "startTime": 13, "duration": 2, "character": "maya", "emotion": "curious", "speed": 1.0 },
+      { "id": "n04", "text": "The Nexus Weaver. Standard issue at eighteen. To most, a harmless career simulator.", "startTime": 21, "duration": 5, "character": "cipher", "emotion": "weary", "speed": 0.9 },
+      { "id": "n05", "text": "But Lucas had spent the last three nights chasing something else.", "startTime": 26, "duration": 4, "character": "cipher", "emotion": "focus", "speed": 0.9 },
+      { "id": "n06", "text": "Reality-074. Aerospace engineer. New Geneva. Twin moons. Hands stained with engine oil.", "startTime": 36, "duration": 5, "character": "cipher", "emotion": "determined", "speed": 0.95 },
+      { "id": "n07", "text": "Every version of him was accomplished. Every version had taken the leap he hadn't.", "startTime": 42, "duration": 5, "character": "voxel", "emotion": "exposition", "speed": 1.0 },
+      { "id": "n08", "text": "Reality-112. Composer. Coastal town. Rain on glass. A finished symphony beside an empty glass.", "startTime": 56, "duration": 5, "character": "cipher", "emotion": "curious", "speed": 0.95 },
+      { "id": "n09", "text": "A Lucas who spoke without stuttering. Who walked into rooms with certainty. Who hadn't let fear write his story.", "startTime": 62, "duration": 6, "character": "voxel", "emotion": "exposition", "speed": 1.0 },
+      { "id": "n10", "text": "Just... looking around.", "startTime": 78, "duration": 2, "character": "cipher", "emotion": "shock", "speed": 1.0 },
+      { "id": "n11", "text": "Doesn't it bother you? Knowing there's a world five degrees left where you made the right turn?", "startTime": 85, "duration": 6, "character": "cipher", "emotion": "focus", "speed": 0.95 },
+      { "id": "n12", "text": "Those other versions aren't braver, Lucas. They just chose and dealt with the fallout.", "startTime": 92, "duration": 5, "character": "maya", "emotion": "grounded", "speed": 1.0 },
+      { "id": "n13", "text": "Anomaly detected. Observer paradox. Reality-074 requesting feed of Reality-001.", "startTime": 108, "duration": 4, "character": "voxel", "emotion": "spike", "speed": 1.1 },
+      { "id": "n14", "text": "The alternate Lucas wasn't smiling. He was staring through his terminal with hollow eyes.", "startTime": 113, "duration": 5, "character": "voxel", "emotion": "exposition", "speed": 1.0 },
+      { "id": "n15", "text": "He looked at the messy table. The warm cafeteria. Maya with tea between her hands.", "startTime": 122, "duration": 5, "character": "cipher", "emotion": "shock", "speed": 0.95 },
+      { "id": "n16", "text": "A whisper echoed through the audio bridge before the signal cut.", "startTime": 128, "duration": 4, "character": "cipher", "emotion": "shock", "speed": 0.9 },
+      { "id": "n17", "text": "I gave up everything for the stars, and I'm entirely alone.", "startTime": 135, "duration": 5, "character": "voxel", "emotion": "exposition", "speed": 1.0 },
+      { "id": "n18", "text": "You cannot outrun what you are.", "startTime": 148, "duration": 4, "character": "silhouette", "emotion": "hostile", "speed": 0.8 },
+      { "id": "n19", "text": "The Weaver clicked off. Cold slate metal on plastic. Maya still waiting, unaware.", "startTime": 155, "duration": 5, "character": "cipher", "emotion": "shock", "speed": 0.95 },
+      { "id": "n20", "text": "Someone kept it. The sea did not come back on its own.", "startTime": 165, "duration": 5, "character": "silhouette", "emotion": "hostile", "speed": 0.85 },
+      { "id": "n21", "text": "Lucas unbuckled the strap. Laid the device flat. Picked up the tea.", "startTime": 172, "duration": 5, "character": "voxel", "emotion": "exposition", "speed": 1.0 },
+      { "id": "n22", "text": "You're right. Let's figure out today first.", "startTime": 188, "duration": 4, "character": "cipher", "emotion": "determined", "speed": 0.95 },
+      { "id": "n23", "text": "The grid doesn't care about intentions. It only executes.", "startTime": 195, "duration": 5, "character": "maya", "emotion": "grounded", "speed": 1.0 },
+      { "id": "n24", "text": "But today — today we choose.", "startTime": 202, "duration": 4, "character": "cipher", "emotion": "determined", "speed": 0.95 },
+      { "id": "n25", "text": "The anomaly logged. The paradox recorded. The system moves on.", "startTime": 215, "duration": 5, "character": "voxel", "emotion": "exposition", "speed": 1.0 },
+      { "id": "n26", "text": "Lucas sipped the spiced tea. Rain streaked the concrete. Lightning flashed — and for a moment, the silhouette watched from the dark.", "startTime": 225, "duration": 8, "character": "cipher", "emotion": "neutral", "speed": 0.9 },
+      { "id": "n27", "text": "The Weaver sat cold on the table. Its violet pulse faded. But the grid... the grid remembered.", "startTime": 258, "duration": 6, "character": "cipher", "emotion": "weary", "speed": 0.9 },
+      { "id": "n28", "text": "Reality-074 still waiting. Reality-112 still composing. And somewhere, a single crimson slit eye blinked in the rain.", "startTime": 270, "duration": 8, "character": "voxel", "emotion": "exposition", "speed": 1.0 },
+      { "id": "n29", "text": "Episode one complete. The Weaver awakens. The choice is made. The grid watches.", "startTime": 285, "duration": 6, "character": "cipher", "emotion": "neutral", "speed": 0.95 }
+    ],
+    "sfx": [
+      { "type": "hum", "time": 0, "volume": 0.25, "pan": 0, "duration": 300 },
+      { "type": "glitch", "time": 35, "volume": 0.4, "pan": 0 },
+      { "type": "glitch", "time": 55, "volume": 0.3, "pan": 0 },
+      { "type": "glitch", "time": 75, "volume": 0.6, "pan": 0 },
+      { "type": "impact", "time": 105, "volume": 0.7, "pan": 0 },
+      { "type": "static", "time": 108, "volume": 0.5, "pan": -0.3 },
+      { "type": "impact", "time": 145, "volume": 0.8, "pan": 0 },
+      { "type": "static", "time": 148, "volume": 0.6, "pan": 0.3 },
+      { "type": "whoosh", "time": 185, "volume": 0.4, "pan": -0.5 },
+      { "type": "button", "time": 0.5, "volume": 0.5, "pan": 0 },
+      { "type": "whoosh", "time": 35, "volume": 0.4, "pan": -0.3 },
+      { "type": "whoosh", "time": 55, "volume": 0.3, "pan": 0.3 }
+    ],
+    "music": { "file": "music/ambient_void.mp3", "volume": 0.35, "loop": true, "fadeIn": 5, "fadeOut": 10 }
+  }
+}

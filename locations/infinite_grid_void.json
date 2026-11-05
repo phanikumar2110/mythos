@@ -1,0 +1,27 @@
+{
+  "id": "infinite_grid_void",
+  "name": "The Infinite Grid Void",
+  "description": "Pitch-black expanse with faint teal perspective grid lines receding toward a dark horizon; subtle ambient floating dust motes drift vertically.",
+  "type": "void",
+  "bgColor": "#0a0b10",
+  "grid": {
+    "color": "#00f0ff",
+    "opacity": 0.08,
+    "spacing": 64,
+    "perspective": true,
+    "vanishY": 0.35,
+    "horizontalLines": true,
+    "verticalLines": true
+  },
+  "particles": {
+    "enabled": true,
+    "count": 120,
+    "color": "#00f0ff",
+    "opacity": 0.15,
+    "size": { "min": 0.5, "max": 2.0 },
+    "drift": { "x": 0, "y": -0.3 },
+    "twinkle": true
+  },
+  "lighting": "void",
+  "camera": { "default": "wide", "moves": ["slow_crane", "static"] }
+}

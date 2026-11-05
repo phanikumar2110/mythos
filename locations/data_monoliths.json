@@ -1,0 +1,15 @@
+{
+  "id": "data_monoliths",
+  "name": "The Data Monoliths (The Archive)",
+  "description": "Colossal vertical server pillars stretching infinitely upward into heavy dark fog, illuminated only by rhythmic status LEDs and harsh volumetric downlights.",
+  "type": "void",
+  "bgColor": "#05060a",
+  "elements": [
+    { "id": "fog", "type": "gradient", "colors": ["#0a0b10", "#000000"], "direction": "vertical" },
+    { "id": "monoliths", "type": "repeating", "count": 7, "spacing": 0.14, "baseX": 0.1, "width": 0.08, "height": 2.5, "color": "#161822", "stroke": "#00f0ff", "strokeWidth": 0.5 },
+    { "id": "leds", "type": "repeating", "onMonoliths": true, "rows": 40, "colors": ["#00f0ff", "#ff2a5f", "#ffb800", "#39ff14"], "blink": true, "pattern": "rhythmic" },
+    { "id": "downlights", "type": "volumetric", "count": 7, "color": "#00f0ff", "intensity": 0.4, "angle": -90 }
+  ],
+  "lighting": "alert",
+  "camera": { "default": "low_angle", "moves": ["slow_crane_up", "static"] }
+}
